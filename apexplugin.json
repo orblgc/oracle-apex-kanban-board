@@ -1,34 +1,33 @@
 {
-  "name" : "KanbanBoard",
-  "version" : "1.0",
-  "description" : "High performance kanban board which is supporting Oracle's faceted, pagination etc. as a template component UI is inspired by Material Kanban Board plugin.",
-  "keywords" : ["oracle","apex","kanban", "tasks", "board"],
-  "homepage" : "https://github.com/orblgc/oracle-apex-kanban-board",
-  "bugs" : {
-    "url" : "https://github.com/orblgc/oracle-apex-kanban-board/issues",
-    "email" : "orkunbl@hotmail.com"
-  },
-  "license" : "MIT",
-  "commercial" : "No",
-  "author" : {
-    "name" : "Orkun Tunç Bilgiç",
-    "email" : "orkunbl@hotmail.com",
-    "donationUrl": "https://buymeacoffee.com/orblg"
-  },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/orblgc/oracle-apex-kanban-board.git"
-  },
- "oracle" : {
-    "versions": ["23.2.0", "21.1.0", "19.1.0"],
-    "apex": {
-      "versions": ["24.2.0"],
-      "plugin" : {
-        "internalName" : "KANBAN_BOARD",
-        "type" : "template component",
-        "demo" : "https://apex.oracle.com/pls/apex/r/ordibu/demo/login",
-        "previewImage" : "https://raw.githubusercontent.com/orblgc/oracle-apex-kanban-board/refs/heads/main/preview.png"
-      }
+    "name": "Kanban Board",
+    "version": "1.0",
+    "description": "High performance kanban board which is supporting Oracle's faceted, pagination etc. as a template component UI is inspired by Material Kanban Board plugin.",
+    "keywords": ["oracle","apex","kanban", "tasks", "board"],
+    "homepage": "https://github.com/orblgc/oracle-apex-kanban-board",
+    "bugs": {
+        "url": "https://github.com/orblgc/oracle-apex-kanban-board/issues",
+        "email": "orkunbl@hotmail.com"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Orkun Tunç Bilgiç",
+        "email": "orkunbl@hotmail.com",
+        "donationUrl": "https://buymeacoffee.com/orblg"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/orblgc/oracle-apex-kanban-board.git"
+    },
+    "oracle": {
+        "versions": ["18c", "19c", "21c", "23c", "23ai"],
+        "apex": {
+            "versions": ["23.2", "24.1", "24.2"],
+            "plugin": {
+                "internalName": "KANBAN_BOARD",
+                "type": "template component",
+                "demo": "https://apex.oracle.com/pls/apex/r/ordibu/demo/login",
+                "previewImage": "https://raw.githubusercontent.com/orblgc/oracle-apex-kanban-board/refs/heads/main/preview.png"
+            }
+        }
     }
-  }
 }
