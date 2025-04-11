@@ -1,5 +1,3 @@
-# oracle-apex-kanban-board
-
 # Kanban Board Component for Oracle APEX
 
 ![Preview](https://raw.githubusercontent.com/orblgc/oracle-apex-kanban-board/refs/heads/main/preview.png)
