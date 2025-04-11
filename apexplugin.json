@@ -24,7 +24,7 @@
       "versions": ["24.2.0"],
       "plugin" : {
         "internalName" : "KANBAN_BOARD",
-        "type" : "dynamic action",
+        "type" : "template component",
         "demo" : "https://apex.oracle.com/pls/apex/r/ordibu/demo/login",
         "previewImage" : "https://raw.githubusercontent.com/orblgc/oracle-apex-kanban-board/refs/heads/main/preview.png"
       }
