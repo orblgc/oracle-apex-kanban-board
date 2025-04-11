@@ -33,14 +33,14 @@ prompt APPLICATION 231266 - Demo
 -- Application Export:
 --   Application:     231266
 --   Name:            Demo
---   Date and Time:   17:29 Friday April 11, 2025
+--   Date and Time:   17:59 Friday April 11, 2025
 --   Exported By:     ORKUNBL@HOTMAIL.COM
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      4
 --       Items:                   11
 --       Processes:                4
---       Regions:                 11
+--       Regions:                 15
 --       Buttons:                  5
 --       Dynamic Actions:         26
 --     Shared Components:
@@ -108,7 +108,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'Demo'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
-,p_version_scn=>15617488495348
+,p_version_scn=>15617492331028
 ,p_print_server_type=>'INSTANCE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -4519,6 +4519,9 @@ wwv_flow_imp_page.create_page(
 ,p_alias=>'KANBAN-BOARD'
 ,p_step_title=>'Kanban Board'
 ,p_autocomplete_on_off=>'OFF'
+,p_javascript_file_urls=>'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js'
+,p_javascript_code_onload=>'hljs.highlightAll();'
+,p_css_file_urls=>'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_page_component_map=>'13'
@@ -4543,7 +4546,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_name=>'Tabs'
 ,p_region_template_options=>'#DEFAULT#:t-TabsRegion-mod--simple'
 ,p_plug_template=>3223171818405608528
-,p_plug_display_sequence=>60
+,p_plug_display_sequence=>70
 ,p_location=>null
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'expand_shortcuts', 'N',
@@ -4602,7 +4605,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_template_component_type=>'REPORT'
 ,p_lazy_loading=>false
 ,p_plug_source_type=>'TMPL_KANBAN_BOARD'
-,p_plug_query_num_rows=>15
+,p_plug_query_num_rows=>25
 ,p_plug_query_num_rows_type=>'SET'
 ,p_show_total_row_count=>true
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -4716,7 +4719,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(28331496768822129401)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>4072358936313175081
-,p_plug_display_sequence=>20
+,p_plug_display_sequence=>30
 ,p_plug_display_point=>'SUB_REGIONS'
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -4763,7 +4766,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_template_component_type=>'REPORT'
 ,p_lazy_loading=>false
 ,p_plug_source_type=>'TMPL_KANBAN_BOARD'
-,p_plug_query_num_rows=>15
+,p_plug_query_num_rows=>25
 ,p_plug_query_num_rows_type=>'SET'
 ,p_show_total_row_count=>true
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -4867,12 +4870,174 @@ wwv_flow_imp_page.create_region_column(
 ,p_is_primary_key=>false
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(28339050149678296901)
+ p_id=>wwv_flow_imp.id(28455171134404798501)
+,p_plug_name=>'Ajax example'
+,p_title=>'Ajax Item Drop Example'
+,p_parent_plug_id=>wwv_flow_imp.id(28331496768822129401)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4072358936313175081
+,p_plug_display_sequence=>70
+,p_plug_display_point=>'SUB_REGIONS'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Write your ajax application process name into related area in plugin component.',
+'<br>',
+'Your process parameters should be look like this.',
+'',
+'<pre><code class="plsql">',
+'DECLARE',
+'    VR_ITEM_ID VARCHAR2(200) := APEX_APPLICATION.G_X01;',
+'    VR_OLD_GROUP_ID VARCHAR2(200) := APEX_APPLICATION.G_X02;',
+'    VR_OLD_COLUMN_ID VARCHAR2(200) := APEX_APPLICATION.G_X03;',
+'    VR_OLD_INDEX VARCHAR2(200) := APEX_APPLICATION.G_X04;',
+'    VR_NEW_GROUP_ID VARCHAR2(200) := APEX_APPLICATION.G_X05;',
+'    VR_NEW_COLUMN_ID VARCHAR2(200) := APEX_APPLICATION.G_X06;',
+'    VR_NEW_INDEX VARCHAR2(200) := APEX_APPLICATION.G_X07;',
+'BEGIN',
+'    -- do something here',
+'    ',
+'     ',
+'    apex_json.open_object();',
+'    apex_json.write(''success'',true);',
+'    apex_json.close_object();',
+'Exception',
+'    When Others Then',
+'        -- if you want to give error via catching sqlcode you can return sqlcode like below.',
+'        apex_json.open_object();',
+'        apex_json.write(''success'',false);',
+'        apex_json.write(''sqlcode'',SQLCODE);',
+'        apex_json.close_object();',
+'END;',
+'</code></pre>'))
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(28455171274292798502)
+,p_plug_name=>'Ajax example'
+,p_title=>'Ajax Group Drop Example'
+,p_parent_plug_id=>wwv_flow_imp.id(28331496768822129401)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4072358936313175081
+,p_plug_display_sequence=>80
+,p_plug_display_point=>'SUB_REGIONS'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Write your ajax application process name into related area in plugin component.',
+'<br>',
+'Your process parameters should be look like this.',
+'',
+'<pre><code class="plsql">',
+'DECLARE',
+'    VR_ITEM_ID VARCHAR2(200) := APEX_APPLICATION.G_X01;',
+'    VR_OLD_INDEX VARCHAR2(200) := APEX_APPLICATION.G_X02;',
+'    VR_NEW_INDEX VARCHAR2(200) := APEX_APPLICATION.G_X03;',
+'BEGIN',
+'    -- do something here',
+'    ',
+'     ',
+'    apex_json.open_object();',
+'    apex_json.write(''success'',true);',
+'    apex_json.close_object();',
+'Exception',
+'    When Others Then',
+'        -- if you want to give error via catching sqlcode you can return sqlcode like below.',
+'        apex_json.open_object();',
+'        apex_json.write(''success'',false);',
+'        apex_json.write(''sqlcode'',SQLCODE);',
+'        apex_json.close_object();',
+'END;',
+'</code></pre>'))
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(28455171348400798503)
+,p_plug_name=>'Query'
+,p_title=>'Query'
+,p_parent_plug_id=>wwv_flow_imp.id(28331496768822129401)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4072358936313175081
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'SUB_REGIONS'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'I used same query for these examples. The difference between grouping style & normal one can be set via open/close switch in plugin "Group Settings".',
+'<br>',
+'If you open Group view switch, then you should also choose a group from columns. ',
+'<br>',
+'(Chose one of the column which is GROUP_ID for our case, then open group switch for that column which is Oracle''s default feature for Template Components. You can choose multiple group columns.)',
+'',
+'<pre><code class="sql">',
+'WITH G AS ( SELECT',
+'                LEVEL   AS GROUP_ID,',
+'                DBMS_RANDOM.STRING(''U'', 1) || DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(6, 12)) || '' '' || DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(6, 12)) AS GROUP_TITLE,',
+'                DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(8, 15)) || '' '' || DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(8, 15)) || '' '' || DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(8, 15)) || '' '' || DBMS_RANDOM',
+'                .STRING(''L'', DBMS_RANDOM.VALUE(8, 15)) AS GROUP_FOOTER',
+'            FROM',
+'                DUAL',
+'            CONNECT BY',
+'                LEVEL <= 4',
+'), I AS ( SELECT',
+'              1000 + LEVEL AS ID,',
+'              CASE TRUNC(DBMS_RANDOM.VALUE(0, 4))',
+'                  WHEN 0 THEN ''TO_DO''',
+'                  WHEN 1 THEN ''IN_PROGRESS''',
+'                  WHEN 2 THEN ''DONE''',
+'                  WHEN 3 THEN ''FAILED''',
+'                END  AS COLUMN_ID,',
+'              TRUNC(DBMS_RANDOM.VALUE(1, 4)) AS GROUP_ID,',
+'              DBMS_RANDOM.STRING(''U'', 1) || DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(6, 12)) || '' '' || DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(6, 12)) AS TITLE,',
+'              DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(8, 15)) || '' '' || DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(8, 15)) || '' '' || DBMS_RANDOM.STRING(''L'', DBMS_RANDOM.VALUE(8, 15)) || '' '' || DBMS_RANDOM',
+'              .STRING(''L'', DBMS_RANDOM.VALUE(8, 15)) AS FOOTER',
+'          FROM',
+'              DUAL',
+'          CONNECT BY',
+'              LEVEL <= 15',
+')',
+'SELECT',
+'    GROUP_ID,',
+'    GROUP_TITLE,',
+'    GROUP_FOOTER,',
+'    ID,',
+'    COLUMN_ID,',
+'    TITLE,',
+'    FOOTER',
+'FROM',
+'    G',
+'    LEFT JOIN I',
+'    USING ( GROUP_ID )',
+'</code></pre>'))
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(28455171766049798507)
 ,p_plug_name=>'Kanban performance'
 ,p_parent_plug_id=>wwv_flow_imp.id(28331496768822129401)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>4072358936313175081
 ,p_plug_display_sequence=>50
+,p_plug_display_point=>'SUB_REGIONS'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'There are 5000 data below. But because we have pagination , all data not loaded at same time. So users can use faceted filters to get data from thousands of others.',
+'<br>',
+'Since i''m using connect by method to generate data dynamically here, real use case would be more faster (i''m also using it ^_^)'))
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(28339050149678296901)
+,p_plug_name=>'Kanban performance'
+,p_parent_plug_id=>wwv_flow_imp.id(28455171766049798507)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4072358936313175081
+,p_plug_display_sequence=>10
 ,p_plug_display_point=>'SUB_REGIONS'
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -4900,7 +5065,7 @@ wwv_flow_imp_page.create_page_plug(
 '          FROM',
 '              DUAL',
 '          CONNECT BY',
-'              LEVEL <= 10000',
+'              LEVEL <= 5000',
 ')',
 'SELECT',
 '    GROUP_ID,',
@@ -4919,7 +5084,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_template_component_type=>'REPORT'
 ,p_lazy_loading=>false
 ,p_plug_source_type=>'TMPL_KANBAN_BOARD'
-,p_plug_query_num_rows=>15
+,p_plug_query_num_rows=>25
 ,p_plug_query_num_rows_type=>'SET'
 ,p_show_total_row_count=>true
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
@@ -5030,9 +5195,10 @@ wwv_flow_imp_page.create_region_column(
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(28335275594164205201)
 ,p_plug_name=>'Faceted1'
-,p_region_template_options=>'#DEFAULT#:js-dialog-size600x400'
+,p_region_template_options=>'#DEFAULT#:js-dialog-autoheight:js-popup-callout:js-dialog-nosize:js-popup-pos-before'
+,p_region_attributes=>'data-parent-element="#filter1"'
 ,p_plug_template=>1485369341786500999
-,p_plug_display_sequence=>30
+,p_plug_display_sequence=>40
 ,p_location=>null
 ,p_plug_source_type=>'NATIVE_FACETED_SEARCH'
 ,p_filtered_region_id=>wwv_flow_imp.id(28331496873018129402)
@@ -5047,9 +5213,10 @@ wwv_flow_imp_page.create_page_plug(
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(28335276174792205207)
 ,p_plug_name=>'Faceted2'
-,p_region_template_options=>'#DEFAULT#:js-dialog-size600x400'
+,p_region_template_options=>'#DEFAULT#:js-dialog-autoheight:js-popup-callout:js-dialog-nosize:js-popup-pos-before'
+,p_region_attributes=>'data-parent-element="#filter2"'
 ,p_plug_template=>1485369341786500999
-,p_plug_display_sequence=>40
+,p_plug_display_sequence=>50
 ,p_location=>null
 ,p_plug_source_type=>'NATIVE_FACETED_SEARCH'
 ,p_filtered_region_id=>wwv_flow_imp.id(28330100124406084701)
@@ -5079,9 +5246,10 @@ wwv_flow_imp_page.create_page_plug(
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(28339051068532296910)
 ,p_plug_name=>'Faceted3'
-,p_region_template_options=>'#DEFAULT#:js-dialog-size600x400'
+,p_region_template_options=>'#DEFAULT#:js-dialog-autoheight:js-popup-callout:js-dialog-nosize:js-popup-pos-before'
+,p_region_attributes=>'data-parent-element="#filter3"'
 ,p_plug_template=>1485369341786500999
-,p_plug_display_sequence=>50
+,p_plug_display_sequence=>60
 ,p_location=>null
 ,p_plug_source_type=>'NATIVE_FACETED_SEARCH'
 ,p_filtered_region_id=>wwv_flow_imp.id(28339050149678296901)
@@ -5098,42 +5266,51 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_sequence=>10
 ,p_button_plug_id=>wwv_flow_imp.id(28331496873018129402)
 ,p_button_name=>'FILTER1'
+,p_button_static_id=>'filter1'
 ,p_button_action=>'DEFINED_BY_DA'
-,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>4072362960822175091
+,p_button_template_options=>'#DEFAULT#:t-Button--iconLeft'
+,p_button_template_id=>2082829544945815391
+,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Filter1'
 ,p_button_position=>'EDIT'
 ,p_warn_on_unsaved_changes=>null
+,p_icon_css_classes=>'fa-filter'
 );
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(28335276751979205213)
 ,p_button_sequence=>10
 ,p_button_plug_id=>wwv_flow_imp.id(28330100124406084701)
 ,p_button_name=>'FILTER2'
+,p_button_static_id=>'filter2'
 ,p_button_action=>'DEFINED_BY_DA'
-,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>4072362960822175091
+,p_button_template_options=>'#DEFAULT#:t-Button--iconLeft'
+,p_button_template_id=>2082829544945815391
+,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Filter2'
 ,p_button_position=>'EDIT'
 ,p_warn_on_unsaved_changes=>null
+,p_icon_css_classes=>'fa-filter'
 );
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(28335277945943205225)
 ,p_button_sequence=>10
 ,p_button_plug_id=>wwv_flow_imp.id(28339050149678296901)
 ,p_button_name=>'FILTER3'
+,p_button_static_id=>'filter3'
 ,p_button_action=>'DEFINED_BY_DA'
-,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>4072362960822175091
+,p_button_template_options=>'#DEFAULT#:t-Button--iconLeft'
+,p_button_template_id=>2082829544945815391
+,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Filter3'
 ,p_button_position=>'EDIT'
 ,p_warn_on_unsaved_changes=>null
+,p_icon_css_classes=>'fa-filter'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(28331498231089129416)
 ,p_name=>'P1_EVENT'
-,p_item_sequence=>10
-,p_prompt=>'Event'
+,p_item_sequence=>30
+,p_prompt=>'Last triggered event'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>30
 ,p_field_template=>1609121967514267634
