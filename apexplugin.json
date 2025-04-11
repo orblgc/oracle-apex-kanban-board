@@ -2,7 +2,7 @@
   "name" : "KanbanBoard",
   "version" : "1.0",
   "description" : "High performance kanban board as template component.",
-  "keywords" : ["kanban", "tasks", "board"],
+  "keywords" : ["oracle","apex","kanban", "tasks", "board"],
   "homepage" : "https://github.com/orblgc/oracle-apex-kanban-board",
   "bugs" : {
     "url" : "https://github.com/orblgc/oracle-apex-kanban-board/issues",
