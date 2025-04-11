@@ -1,7 +1,7 @@
 {
   "name" : "KanbanBoard",
   "version" : "1.0",
-  "description" : "High performance kanban board as template component.",
+  "description" : "High performance kanban board which is supporting Oracle's faceted, pagination etc. as a template component inspired by Material Kanban Board plugin.",
   "keywords" : ["oracle","apex","kanban", "tasks", "board"],
   "homepage" : "https://github.com/orblgc/oracle-apex-kanban-board",
   "bugs" : {
