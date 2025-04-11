@@ -12,7 +12,8 @@
   "commercial" : "No",
   "author" : {
     "name" : "Orkun Tunç Bilgiç",
-    "email" : "orkunbl@hotmail.com"
+    "email" : "orkunbl@hotmail.com",
+    "donationUrl": "https://buymeacoffee.com/orblg"
   },
   "repository" : {
     "type" : "git",
