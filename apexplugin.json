@@ -6,13 +6,13 @@
   "homepage" : "https://github.com/orblgc/oracle-apex-kanban-board",
   "bugs" : {
     "url" : "https://github.com/orblgc/oracle-apex-kanban-board/issues",
-    "email" : "orkunbl@hotmail.com"
+    "email" : "orkunblgc@gmail.com"
   },
   "license" : "MIT",
   "commercial" : "No",
   "author" : {
     "name" : "Orkun Tunç Bilgiç",
-    "email" : "orkunbl@hotmail.com",
+    "email" : "orkunblgc@gmail.com",
     "donationUrl": "https://buymeacoffee.com/orblg"
   },
   "repository" : {
