@@ -1,6 +1,6 @@
 # Kanban Board Component for Oracle APEX
 
-![Preview](https://raw.githubusercontent.com/orblgc/oracle-apex-kanban-board/refs/heads/main/preview.png)
+![Preview](https://raw.githubusercontent.com/orblgc/oracle-apex-kanban-board/refs/heads/main/kanbanpreview.png)
 
 This Kanban Board component is inspired by the **Material Kanban Board Plugin**, using it as a UI (HTML-CSS) reference. You can see the inspired plugin [here](https://github.com/McRange/Material-Kanban-Board).
 
