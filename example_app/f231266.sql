@@ -33,7 +33,7 @@ prompt APPLICATION 231266 - Demo
 -- Application Export:
 --   Application:     231266
 --   Name:            Demo
---   Date and Time:   00:30 Tuesday May 6, 2025
+--   Date and Time:   16:48 Tuesday May 6, 2025
 --   Exported By:     ORKUNBL@HOTMAIL.COM
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -108,7 +108,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'Demo'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
-,p_version_scn=>15622401134710
+,p_version_scn=>15622602660259
 ,p_print_server_type=>'INSTANCE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
@@ -13199,7 +13199,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<a href="https://github.com/orblgc/oracle-apex-jstree" target="_blank">https://github.com/orblgc/oracle-apex-jstree</a>',
 '<br>',
-'<a href="https://apex.world/ords/r/apex_world/apex-world/my-plug-in-details?p730_plg_int_name=JSTREE_APEX" target="_blank">https://apex.world/ords/r/apex_world/apex-world/my-plug-in-details?p730_plg_int_name=JSTREE_APEX</a>'))
+'<a href="https://apex.world/ords/r/apex_world/apex-world/plug-in-details?p710_plg_int_name=JSTREE_APEX&clear=710" target="_blank">https://apex.world/ords/r/apex_world/apex-world/plug-in-details?p710_plg_int_name=JSTREE_APEX&clear=710</a>'))
 ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
   'expand_shortcuts', 'N',
   'output_as', 'HTML')).to_clob
