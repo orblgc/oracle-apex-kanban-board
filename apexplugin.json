@@ -21,7 +21,7 @@
     "oracle": {
         "versions": ["18c", "19c", "21c", "23c", "23ai"],
         "apex": {
-            "versions": ["23.2", "24.1", "24.2"],
+            "versions": ["24.2"],
             "plugin": {
                 "internalName": "KANBAN_BOARD",
                 "type": "template component",
